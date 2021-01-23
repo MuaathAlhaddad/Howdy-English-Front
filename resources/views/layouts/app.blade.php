@@ -12,6 +12,8 @@
         <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+        <!-- Font-Awesome Icons -->
+        <link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -27,13 +29,12 @@
         @endauth
         
         <div class="main-content">
-            @include('layouts.navbars.navbar')
+            @auth
+                @include('layouts.navbars.navbar')
+            @endauth
             @yield('content')
         </div>
-
-        @guest()
-            @include('layouts.footers.guest')
-        @endguest
+        
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
